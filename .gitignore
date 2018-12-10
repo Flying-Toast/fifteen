@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/fifteen
+fifteen.so
+fifteen.dylib
+fifteen.dll
+fifteen.a
+fifteen.lib
+fifteen-test-*
+*.exe
+*.o
+*.obj
+*.lst

@@ -1,0 +1,9 @@
+{
+	"description": "Terminal-based 15 sliding puzzle.",
+	"license": "MIT",
+	"authors": [
+		"Flying-Toast"
+	],
+	"copyright": "Copyright © 2018, Flying-Toast",
+	"name": "fifteen"
+}
