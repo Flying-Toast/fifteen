@@ -48,21 +48,29 @@ class Puzzle {
 		import std.conv;
 		import std.stdio;
 
+		clearScreen();
 
 		wstring[] renderString = new wstring[size + 1];//the rendered puzzle, as an array of the tiles rendered individually
 
 		foreach (i; 1 .. size + 1) {
-			renderString[i] = renderTile(i, tiles[i - 1].position);
-		}
-
-		foreach(i; 0 .. renderString.length) {
-			writeln(renderString[i]);
-			writeln();
+			renderTile(i, tiles[i - 1].position);
 		}
 	}
 
-	private wstring renderTile(uint number, uint position) {
+	private void clearScreen() {
+		import std.stdio;
+		write("\033[2J\033[;H");
+	}
+
+	private void moveTo(uint x, uint y) {
+		import std.stdio;
 		import std.conv;
+		write("\033["~(y + 1).to!string~";"~x.to!string~"H");
+	}
+
+	private void renderTile(uint number, uint position) {
+		import std.conv;
+		import std.stdio;
 
 		enum _tl = '┏';
 		enum _tr = '┓';
@@ -121,10 +129,19 @@ class Puzzle {
 			num ~= " ";
 		}
 
-		return 
-			"position: "w~position.to!wstring~"\n"w~//TEMP
-			tl~"━━━"w~tr~
-			"\n┃"w~num~"┃\n"w~
-			bl~"━━━"w~br;
+		wstring[] rows = [
+			tl~"━━━"w~tr,
+			"┃"w~num~"┃"w,
+			bl~"━━━"w~br,
+		];
+
+		foreach (i; 0 .. rows.length) {
+			import std.stdio;
+
+			uint x = (position % dim) * 5;//*5: the width (# of characters) of the rendered tile
+			uint y = (((position - (position % dim)) / dim)) * 3;//*3: the height (# of characters) of the rendered tile
+			moveTo(x, y + i.to!uint);
+			write(rows[i]);
+		}
 	}
 }
