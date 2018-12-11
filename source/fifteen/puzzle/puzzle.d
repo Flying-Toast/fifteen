@@ -118,7 +118,6 @@ class Puzzle {
 			tr = ri;
 			br = ri;
 		}
-		number = position;
 
 		wstring num = number.to!wstring;
 
