@@ -5,4 +5,5 @@ void main() {
 	p.render();
 	import std.stdio;
 	writeln();
+	readln();
 }

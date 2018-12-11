@@ -65,7 +65,7 @@ class Puzzle {
 	private void moveTo(uint x, uint y) {
 		import std.stdio;
 		import std.conv;
-		write("\033["~(y + 1).to!string~";"~x.to!string~"H");
+		write("\033["~(y + 1).to!string~";"~(x + 1).to!string~"H");
 	}
 
 	private void renderTile(uint number, uint position) {
@@ -89,8 +89,6 @@ class Puzzle {
 		wchar bl = '╋';
 		wchar br = '╋';
 
-		//FIXME: `position` is zero-based, comparing needs something else
-
 		if (position == 0) {//top left tile
 			tl = _tl;
 			tr = ti;
@@ -99,7 +97,7 @@ class Puzzle {
 			tl = ti;
 			tr = _tr;
 			br = ri;
-		} else if (position == (dim^^2) - dim + 1) {//bottom left
+		} else if (position == (dim^^2) - dim) {//bottom left
 			tl = li;
 			bl = _bl;
 			br = bi;
@@ -113,10 +111,10 @@ class Puzzle {
 		} else if (position > (dim^^2) - dim) {//bottom row
 			bl = bi;
 			br = bi;
-		} else if ((position - 1) % dim == 0) {//left col
+		} else if (false) {//left col
 			tl = li;
 			bl = li;
-		} else if (position % dim == 0) {//right col
+		} else if (false) {//right col
 			tr = ri;
 			br = ri;
 		}
