@@ -103,6 +103,9 @@ class Puzzle {
 		} else if (position > (dim^^2) - dim) {//bottom row
 			bl = bi;
 			br = bi;
+		} else if ((position - 1) % dim == 0) {//left col
+			tl = li;
+			bl = li;
 		}
 
 		wstring num = number.to!wstring;
