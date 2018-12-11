@@ -134,11 +134,14 @@ class Puzzle {
 			bl~"━━━"w~br,
 		];
 
+		uint topOffset = (position - (position % dim)) / dim;
+		uint rightOffset = position % dim;
+
 		foreach (i; 0 .. rows.length) {
 			import std.stdio;
 
-			uint x = (position % dim) * 5;//*5: the width (# of characters) of the rendered tile
-			uint y = (((position - (position % dim)) / dim)) * 3;//*3: the height (# of characters) of the rendered tile
+			uint x = (position % dim) * 5 - rightOffset;//*5: the width (# of characters) of the rendered tile
+			uint y = (((position - (position % dim)) / dim)) * 3 - topOffset;//*3: the height (# of characters) of the rendered tile
 			moveTo(x, y + i.to!uint);
 			write(rows[i]);
 		}
