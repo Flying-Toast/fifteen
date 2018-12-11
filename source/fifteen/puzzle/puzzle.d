@@ -81,6 +81,8 @@ class Puzzle {
 		wchar bl = '╋';
 		wchar br = '╋';
 
+		//FIXME: `position` is zero-based, comparing needs something else
+
 		if (position == 0) {//top left tile
 			tl = _tl;
 			tr = ti;
