@@ -100,6 +100,9 @@ class Puzzle {
 		} else if (position <= dim) {//top row
 			tl = ti;
 			tr = ti;
+		} else if (position > (dim^^2) - dim) {//bottom row
+			bl = bi;
+			br = bi;
 		}
 
 		wstring num = number.to!wstring;
