@@ -105,19 +105,20 @@ class Puzzle {
 			tr = ri;
 			bl = bi;
 			br = _br;
-		} else if (position <= dim) {//top row
+		} else if (position < dim) {//top row
 			tl = ti;
 			tr = ti;
 		} else if (position > (dim^^2) - dim) {//bottom row
 			bl = bi;
 			br = bi;
-		} else if (false) {//left col
+		} else if (position % dim == 0) {//left col
 			tl = li;
 			bl = li;
-		} else if (false) {//right col
+		} else if ((position + dim + 1) % dim == 0) {//right col
 			tr = ri;
 			br = ri;
 		}
+		number = position;
 
 		wstring num = number.to!wstring;
 
