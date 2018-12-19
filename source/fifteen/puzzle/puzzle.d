@@ -27,8 +27,8 @@ class Puzzle {
 	}
 
 	bool isSolved() {
-		foreach (i; 1 .. size+1) {
-			if (tiles[i-1].number != i) {
+		foreach (i; 0 .. size) {
+			if (tiles[i].number != tiles[i].position+1) {
 				return false;
 			}
 		}
