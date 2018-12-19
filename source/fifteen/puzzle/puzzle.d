@@ -7,7 +7,7 @@ class Puzzle {
 
 	immutable uint dim;///the length of a side of the puzzle
 
-	private Tile[] tiles;///the tiles on the puzzle. index represents the tile number. tiles[0] has random useless stuff in it. never use tiles[0]
+	private Tile[] tiles;///the tiles on the puzzle. index represents the tile number. tiles[0] has random useless stuff in it.
 	Tile emptyTile;
 
 	this(uint size) {
@@ -41,7 +41,7 @@ class Puzzle {
 				return tile;
 			}
 		}
-		assert(0);
+		return tiles[0];
 	}
 
 	void shuffle() {
