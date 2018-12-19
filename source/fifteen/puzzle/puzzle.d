@@ -26,6 +26,15 @@ class Puzzle {
 		shuffle();
 	}
 
+	bool isSolved() {
+		foreach (i; 1 .. size+1) {
+			if (tiles[i-1].number != i) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	///swaps the empty tile with the tile at 'position'
 	void swapEmptyTile(uint position) {
 		Tile tileAtPosition = getTileByPosition(position);

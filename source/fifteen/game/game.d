@@ -20,7 +20,7 @@ class Game {
 	void play() {
 		puzzle.render();
 
-		while (true) {//TODO: check if puzzle is solved instead of looping blindly
+		while (!puzzle.isSolved) {
 			MoveDirection moveDir = getMoveInput();
 			processInput(moveDir);
 
