@@ -5,10 +5,10 @@ import fifteen.puzzle.tile;
 class Puzzle {
 	private immutable uint size;///the maximum tile number
 
-	private immutable uint dim;///the length of a side of the puzzle
+	immutable uint dim;///the length of a side of the puzzle
 
 	private Tile[] tiles;///the tiles on the puzzle. index represents the tile number. tiles[0] has random useless stuff in it. never use tiles[0]
-	private Tile emptyTile;
+	Tile emptyTile;
 
 	this(uint size) {
 		import std.math;
@@ -24,6 +24,24 @@ class Puzzle {
 		}
 
 		shuffle();
+	}
+
+	///swaps the empty tile with the tile at 'position'
+	void swapEmptyTile(uint position) {
+		Tile tileAtPosition = getTileByPosition(position);
+		uint oldPosition = tileAtPosition.position;
+
+		tileAtPosition.position = emptyTile.position;
+		emptyTile.position = oldPosition;
+	}
+
+	Tile getTileByPosition(uint position) {
+		foreach (tile; tiles[1 .. $]) {
+			if (tile.position == position) {
+				return tile;
+			}
+		}
+		assert(0);
 	}
 
 	void shuffle() {
