@@ -82,6 +82,14 @@ class Puzzle {
 		foreach (i; 1 .. size + 1) {
 			renderTile(i, tiles[i - 1].position);
 		}
+		moveCursorToBottom();
+	}
+
+	private void moveCursorToBottom() {
+		import std.stdio;
+		import std.conv;
+
+		write("\033["~(dim * 3 - 2).to!string~";0H");
 	}
 
 	private void clearScreen() {

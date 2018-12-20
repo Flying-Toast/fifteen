@@ -18,6 +18,8 @@ class Game {
 	}
 
 	void play() {
+		import std.stdio : writeln;
+
 		puzzle.render();
 
 		while (!puzzle.isSolved) {
@@ -26,6 +28,7 @@ class Game {
 
 			puzzle.render();
 		}
+		writeln("You solved the puzzle!");
 	}
 
 	private void processInput(MoveDirection dir) {
