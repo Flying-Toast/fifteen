@@ -74,11 +74,11 @@ class Game {
 				return MoveDirection.down;
 
 			case "\033[C":
-			case "h":
+			case "l":
 				return MoveDirection.left;
 
 			case "\033[D":
-			case "l":
+			case "h":
 				return MoveDirection.right;
 
 			default:
