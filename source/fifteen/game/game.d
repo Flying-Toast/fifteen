@@ -63,7 +63,7 @@ class Game {
 		import std.string : strip;
 
 		string rawInput = readln().strip();
-		import std.stdio;writeln(rawInput);
+
 		switch (rawInput) {
 			case "\033[A":
 			case "k":
